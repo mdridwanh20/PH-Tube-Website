@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH Tube</title>
+
+    <!-- tailwind cdn link here -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- daisy UI cdn link here -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.11/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- main css link here -->
+    <link rel="stylesheet" href="./style/main.css">
+
+</head>
+
+<body>
+
+    <header>
+<!-- navbar here -->
+       <nav class="container m-auto py-4 border-b-2">
+        <div class="navbar bg-base-100 flex items-center justify-between">
+
+            <!-- brand logo here -->
+            <div class="">
+              <a class="max-w-28 lg:max-w-80"><img src="./Logo.png" alt=""></a>
+            </div>
+
+            <!-- input text here -->
+              <div class="">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto focus:outline-none" />
+              </div>
+
+            <!-- button here -->
+              <div class="">
+                <button class="btn btn-active btn-primary">Blog</button>
+              </div>
+
+        </div>
+       </nav>
+    </header>
+
+    <main class="container m-auto">
+      <!-- video categories button -->
+        <section id="categories" class="flex gap-5 m-5"> </section>
+
+      <section
+      id="videosContainer"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10 px-4">
+
+      </section>
+
+
+      
+
+
+
+    </main>
+
+
+
+
+
+
+<script src="./scripts/video.js"></script>
+</body>
+</html>
