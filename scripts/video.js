@@ -18,15 +18,15 @@ const loadVideo = () => {
 }
 
 
-// tim setup function;
-    const getTimeString = (time) => {
-        const hours = parseInt(time / 3600)
-        let remainingSecond = time % 3600;
-        const minute = parseInt(remainingSecond / 60);
-        return `${hours} hr ${minute} min`;
-    }
+// load category video here:
+const loadCategoriesVideo = (id) => {
+    // alert(id)
 
-
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
+    .then((res) => res.json())
+    .then((data) => videoDisplay(data.category))
+    .catch((Error) => console.log('this is error', Error))
+}
 
 
 // const demoVideo = {
@@ -48,14 +48,20 @@ const loadVideo = () => {
 //     "description": "'Inside Amy Schumer' is a comedy show by the popular comedian Amy Schumer, blending sharp satire and unfiltered humor to tackle everyday issues and societal norms. With 3.6K views, the show promises a blend of hilarious sketches, thought-provoking stand-up, and candid interviews. It's a must-watch for fans of bold, edgy comedy."
 // }
 
-                        // problem 55 line kvabe aslo.
+
+
+
+            // problem 55 line kvabe aslo.
 // video display:
 const videoDisplay = (videos) => {
     const videosContainer = document.getElementById('videosContainer');
+    videosContainer.innerHTML = "";
+
     videos.forEach((video) => {
-        console.log(video);
+        // console.log(video);
         const card = document.createElement('div');
         card.classList = 'card card-compact'
+        
         card.innerHTML = `
         <figure class="h-[200px] relative">
             <img
@@ -92,8 +98,8 @@ const videoDisplay = (videos) => {
             
         </div>
     `;
+     videosContainer.append(card)
 
-        videosContainer.append(card)
     })
 }
 
@@ -103,13 +109,15 @@ const videoDisplay = (videos) => {
         const categoriesContainer = document.getElementById('categories');
         
         categories.forEach((item) => {
-            console.log(item);
+            // console.log(item);
+            const buttonContainer = document.createElement('div')
+            buttonContainer.innerHTML = `
 
-            const button = document.createElement('button')
-            button.classList = "btn"
-            button.innerText = item.category;
-
-            categoriesContainer.append(button)
+            <button onclick="loadCategoriesVideo(${item.category_id})" class="btn">
+                ${item.category}
+            </button>
+            `
+            categoriesContainer.append(buttonContainer)
         })
     };
 
